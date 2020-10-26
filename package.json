@@ -2,6 +2,15 @@
   "name": "voggle",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Le TisseurDeToile",
+    "email": "webmaster@tisseurdetoile.net",
+    "url": "https://www.tisseurdetoile.net"
+  },
+  "homepage": "https://github.com/tisseurdetoile/voggle",
+  "bugs": "https://github.com/tisseurdetoile/voggle/issues",
+  "license": "LGPL-3.0",
+  "repository": "github:tisseurdetoile/voggle",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -18,7 +27,9 @@
     "@vue/compiler-sfc": "^3.0.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^7.0.0-0"
+    "eslint-plugin-vue": "^7.0.0-0",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^10.0.4"
   },
   "eslintConfig": {
     "root": true,
