@@ -1,10 +1,9 @@
 <template>
-  <div class="dice">
-    <span
-      class="letter"
-      v-bind:class="[{ underline: isUnderline }, textPosition]"
-      >{{ letter }}</span
-    >
+  <div class="dice" v-bind:class="[textPosition]">
+    <span v-bind:class="{ underline: isUnderline }" class="letter">{{
+      letter
+    }}</span
+    ><span v-if="letter == 'Q'" class="sletter">u</span>
   </div>
 </template>
 
@@ -68,5 +67,9 @@ export default {
 .dice .letter {
   font-weight: bold;
   font-size: 80px;
+}
+.dice .sletter {
+  font-weight: bold;
+  font-size: 30px;
 }
 </style>
