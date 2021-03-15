@@ -1,5 +1,5 @@
 <template>
-  <div class="dice" v-bind:class="[textPosition]">
+  <div class="dice" v-bind:class="textPosition">
     <span v-bind:class="{ underline: isUnderline }" class="letter">{{
       letter
     }}</span
