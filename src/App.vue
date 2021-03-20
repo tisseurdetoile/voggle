@@ -14,7 +14,7 @@
   </div>
 
   <div v-if="this.game != null">
-    <Timer :timer="180" />
+    <Timer :timer="180" @msg-time-up="endGame" />
     <br />
     <div class="board">
       <Dice
