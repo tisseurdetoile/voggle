@@ -1,19 +1,35 @@
 <template>
   <h1>Voggle</h1>
-  <Timer :timer="180" />
-  <br />
-  <div class="board">
-    <Dice
-      v-for="diceFace in scrambleDices"
-      :key="diceFace.id"
-      :letter="diceFace"
-    />
+
+  <div v-if="this.game == null">
+    <h2>A quoi voulez vous jouer ?</h2>
+    <div class="board">
+      <Choice
+        v-for="game in listGames"
+        :key="game.id"
+        :game="game"
+        @msg-game-choice="gameChoice"
+      ></Choice>
+    </div>
+  </div>
+
+  <div v-if="this.game != null">
+    <Timer :timer="180" />
+    <br />
+    <div class="board">
+      <Dice
+        v-for="diceFace in scrambleDices"
+        :key="diceFace.id"
+        :letter="diceFace"
+      />
+    </div>
   </div>
 </template>
 
 <script>
 import Dice from './components/Dice'
 import Timer from './components/Timer'
+import Choice from './components/Choice'
 
 const gameDices = {
   boggle: {
@@ -63,16 +79,33 @@ export default {
   components: {
     Dice,
     Timer,
+    Choice,
   },
   data() {
     return {
-      game: 'boggle',
+      game: null,
     }
+  },
+  methods: {
+    gameChoice(game) {
+      console.log('gameChoice', game)
+      this.game = game
+    },
+    endGame() {
+      console.log('endGame')
+    },
+    resetGame() {
+      console.log('resetGame')
+      this.game = null
+    },
   },
   computed: {
     // @TODO : passer dans un modules
     getDices() {
       return gameDices[this.game].dices
+    },
+    listGames() {
+      return Object.keys(gameDices)
     },
     scrambleDices() {
       return this.getDices
@@ -97,6 +130,17 @@ export default {
   margin-top: 60px;
 }
 
+h3 {
+  background-color: tomato;
+  width: 104px;
+  height: 104px;
+  border-radius: 10%;
+  line-height: 104px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .board {
   margin: 0 auto;
   width: 500px;
