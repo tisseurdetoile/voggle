@@ -1,5 +1,9 @@
 <template>
-  <h1>Voggle</h1>
+  <h1 v-if="!this.end">Voggle</h1>
+
+  <div v-if="this.end">
+    <button @click="resetGame">Rejouer</button>
+  </div>
 
   <div v-if="this.game == null">
     <h2>A quoi voulez vous jouer ?</h2>
@@ -84,6 +88,7 @@ export default {
   data() {
     return {
       game: null,
+      end: false,
     }
   },
   methods: {
@@ -93,9 +98,11 @@ export default {
     },
     endGame() {
       console.log('endGame')
+      this.end = true
     },
     resetGame() {
       console.log('resetGame')
+      this.end = false
       this.game = null
     },
   },
