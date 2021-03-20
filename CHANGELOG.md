@@ -1,8 +1,10 @@
 # Changelog
 
-## [1.0.0] - 2020-03-20
+## Unreleased
 
 ### Added
+
+## [1.0.0] - 2020-03-20
 
 - Relance du jeu
 - Choix du jeu au démarrage
