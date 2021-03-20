@@ -13,6 +13,7 @@
 <script>
 export default {
   props: { timer: { type: Number, required: true } },
+  emits: ['msg-time-up'],
   data() {
     return {
       timerCount: this.timer,
@@ -44,6 +45,9 @@ export default {
           setTimeout(() => {
             this.timerCount--
           }, 1000)
+        } else {
+          console.log('End Timer')
+          this.$emit('msg-time-up')
         }
       },
       immediate: true, // This ensures the watcher is triggered upon creation
