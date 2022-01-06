@@ -55,14 +55,13 @@ export default {
   },
 }
 </script>
-<style lang="scss" scoped>
+<style scoped>
 .TimerContainer {
   display: flex;
   justify-content: center;
   font-size: 8rem;
   color: #555;
 }
-
 .loading-bar {
   position: relative;
   width: 400px;
@@ -70,51 +69,37 @@ export default {
   border-radius: 15px;
   overflow: hidden;
   border-bottom: 1px solid #ddd;
-  box-shadow: inset 0 1px 2px rgba($color: #000, $alpha: 0.4), 0 -1px 1px #fff,
-    0 1px 0 #fff;
-
-  .percentage {
-    position: absolute;
-    top: 1px;
-    left: 1px;
-    right: 1px;
-    display: block;
-    height: 100%;
-    border-radius: 15px;
-    background-color: #a5df41;
-    background-size: 30px 30px;
-    background-image: linear-gradient(
-      135deg,
-      rgba($color: #fff, $alpha: 0.15) 25%,
-      transparent 25%,
-      transparent 50%,
-      rgba($color: #fff, $alpha: 0.15) 50%,
-      rgba($color: #fff, $alpha: 0.15) 75%,
-      transparent 75%,
-      transparent
-    );
-    animation: animate-stripes 3s linear infinite;
-  }
-
-  .lessGreen {
-    background-color: #cfdf41;
-  }
-
-  .yellow {
-    background-color: #dfc741;
-  }
-
-  .red {
-    background-color: red;
-  }
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4), 0 -1px 1px #fff, 0 1px 0 #fff;
+}
+.loading-bar .percentage {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  right: 1px;
+  display: block;
+  height: 100%;
+  border-radius: 15px;
+  background-color: #a5df41;
+  background-size: 30px 30px;
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  animation: animate-stripes 3s linear infinite;
+}
+.loading-bar .lessGreen {
+  background-color: #cfdf41;
+}
+.loading-bar .yellow {
+  background-color: #dfc741;
+}
+.loading-bar .red {
+  background-color: red;
 }
 
 @keyframes animate-stripes {
   0% {
     background-position: 0 0;
-  }
+	}
   100% {
     background-position: 60px 0;
-  }
+	}
 }
 </style>
